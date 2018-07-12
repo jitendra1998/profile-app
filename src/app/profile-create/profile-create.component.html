@@ -1,0 +1,43 @@
+<div class="container">
+  <h1>Add Profile</h1>
+  <div class="row">
+    <div class="col-md-6">
+      <form (ngSubmit)="saveProfile()" #profileForm="ngForm">
+        <div class="form-group">
+          <label for="name">First Name</label>
+          <input type="text" class="form-control" [(ngModel)]="profile.fname" name="fname" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Last Name</label>
+          <input type="text" class="form-control" [(ngModel)]="profile.lname" name="lname" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Email</label>
+          <input type="email" class="form-control" [(ngModel)]="profile.email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Phone</label>
+          <input type="text" class="form-control" [(ngModel)]="profile.phone" name="phone" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Current Position</label>
+          <input type="string" class="form-control" [(ngModel)]="profile.position" name="position" required>
+        </div>
+        <div class="form-group">
+          <label for="name">Joining Date</label>
+          <input type="date" class="form-control" [(ngModel)]="profile.joining" name="joining" required>
+        </div>
+        <div class="form-group">
+<input type="file" name="photo" ng2FileSelect [uploader]="uploader" />
+<!-- button to trigger the file upload when submitted -->
+<button type="button" class="btn btn-success btn-s" (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">
+      Upload 
+</button>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success" [disabled]="!profileForm.form.valid">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

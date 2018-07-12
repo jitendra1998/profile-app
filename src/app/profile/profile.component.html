@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Existing Profiles
+    <a [routerLink]="['/profile-create']" class="btn btn-default btn-lg">
+      <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    </a>
+  </h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let profile of profiles">
+        <td>{{ profile.fname }} {{profile.lname}}</td>
+        <td>{{ profile.email }}</td>
+        <td>
+          <a [routerLink]="['/profile-details', profile._id]" class="btn btn-success">Show Detail</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
